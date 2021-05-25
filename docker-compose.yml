@@ -1,0 +1,15 @@
+version: '1'
+services:
+  backend-server:
+    container_name: backend-server
+    build:
+      context: docker-backend-server
+      dockerfile: Dockerfile
+    image: backend-server:latest
+    ports:
+      - 8080:8080
+    networks:
+      - global-network
+networks:
+  global-network:
+    driver: bridge
