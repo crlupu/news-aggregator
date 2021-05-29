@@ -20,7 +20,7 @@ public class Scrapper {
     @Autowired
     NewsRepository newsRepository;
 
-    @Scheduled(fixedDelay = 10000)
+    @Scheduled(fixedDelay = 100000)
     public void scrapeData() {
         getTheVergeNews("https://www.theverge.com/tech");
         getTheVergeNews("https://www.theverge.com/entertainment");
