@@ -1,0 +1,47 @@
+.example-full-width {
+  width: 100%;
+}
+
+.div-form {
+  text-align: center;
+  width: 100%;
+  min-width: 150px;
+  max-width: 680px;
+  background-color: white;
+  margin: 0 auto 0;
+  padding: 2vw;
+  color: black;
+  border-radius: 40px;
+  font-size: 1.1vw;
+  font-family: "Beauty";
+}
+
+.button-get-started {
+  font-size: 1.7vw;
+  background-color: white;
+  font-family: "Regular";
+  border-radius: 22px;
+  border: none;
+  padding: 15px 20px;
+  text-decoration: none;
+  color: black;
+  border: 1px solid rgb(8, 122, 148);
+  font-family: "Beauty";
+}
+
+.button-get-started:hover {
+  background-color: white;
+}
+
+.button-get-started:hover {
+  color: white;
+  background-size: 200% auto;
+  background-image: linear-gradient(
+    to right,
+    rgb(78, 248, 185) 0%,
+    rgb(8, 122, 148) 50%,
+    rgb(78, 248, 185) 100%
+  );
+  background-position: right center;
+  transition: 0.5s;
+}

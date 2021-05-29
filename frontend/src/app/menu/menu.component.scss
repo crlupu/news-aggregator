@@ -1,0 +1,17 @@
+.menu {
+  display: flex;
+  font-size: 1.3vw;
+  padding-top: 2vw;
+  font-family: 'SemiBold';
+}
+
+.menu-item {
+  margin-left: 7vw;
+  text-decoration: none;
+  color: white;
+  font-family: 'SemiBold';
+}
+
+.menu-item:hover {
+  color: rgba(61, 221, 213, 255);
+}

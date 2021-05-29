@@ -1,0 +1,27 @@
+<div class="background-style">
+  <app-menu></app-menu>
+  <div class="div-form">
+    <h1 class="sign-up-title">Sign In</h1>
+    <mat-form-field class="example-full-width">
+      <mat-label>Email</mat-label>
+      <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+        placeholder="Ex. pat@example.com" required="true">
+      <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+        Please enter a valid email address.
+      </mat-error>
+    </mat-form-field>
+
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Password</mat-label>
+      <input type="password" matInput required="true" [(ngModel)]="origPass">
+    </mat-form-field>
+
+  </div>
+  <div style="height: 6vw;"></div>
+  <div style="text-align: center;">
+    <a class="button-get-started" (click)="signInRequest()">Sign In</a>
+  </div>
+
+
+</div>
