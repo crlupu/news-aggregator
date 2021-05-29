@@ -1,0 +1,47 @@
+.background-style {
+  width: 100vw;
+  height: 100vh;
+  background-image: url('./../../assets/yes.jpg');
+  background-size: 100vw 100vh;
+  color: white;
+}
+
+
+.button-get-started {
+  font-size: 1.5vw;
+  background-color: white;
+  font-family: 'Regular';
+  border-radius: 22px;
+  border: none;
+  padding: 15px 20px;
+  margin: 4vw 0 0 7vw;
+  text-decoration: none;
+  color: black;
+}
+
+.info-profile {
+  padding-left: 7vw;
+  font-size: 2vw;
+  font-family: 'Regular';
+}
+
+.info-profile-main {
+  padding-left: 7vw;
+  font-size: 2vw;
+  padding-top: 9vw;
+  padding-bottom: 3vw;
+  font-size: 5vw;
+  font-family: "Beauty";
+}
+
+.button-get-started:hover {
+  background-color: white;
+}
+
+.button-get-started:hover {
+  color: white;
+  background-size: 200% auto;
+  background-image: linear-gradient(to right, rgb(78, 248, 185) 0%, rgb(8, 122, 148) 50%, rgb(78, 248, 185) 100%);
+  background-position: right center;
+  transition: 0.5s;
+}

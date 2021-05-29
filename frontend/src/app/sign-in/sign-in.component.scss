@@ -1,0 +1,80 @@
+.background-style {
+  width: 100vw;
+  height: 100vh;
+  background-image: url('./../../assets/yes.jpg');
+  background-size: 100vw 100vh;
+  color: white;
+}
+
+.menu {
+  display: flex;
+  font-size: 1.3vw;
+  padding-top: 2vw;
+  font-family: 'SemiBold';
+}
+
+.menu-item {
+  margin-left: 7vw;
+  text-decoration: none;
+  color: white;
+  font-family: 'SemiBold';
+}
+
+.menu-item:hover {
+  color: rgba(61, 221, 213, 255);
+}
+
+
+.example-full-width {
+  width: 100%;
+}
+
+.div-form {
+  text-align: center;
+  width: 100%;
+  min-width: 150px;
+  max-width: 680px;
+  background-color: white;
+  margin: 12vw auto 0;
+  padding: 2vw;
+  color: black;
+  border-radius: 40px;
+  font-size: 1.4vw;
+}
+
+
+.button-get-started {
+  font-size: 1.7vw;
+  background-color: white;
+  font-family: 'Regular';
+  border-radius: 22px;
+  border: none;
+  padding: 15px 20px;
+  margin-top: 4vw;
+  text-decoration: none;
+  color: black;
+  font-family: "Beauty";
+}
+
+.button-get-started:hover {
+  background-color: white;
+}
+
+.button-get-started:hover {
+  color: white;
+  background-size: 200% auto;
+  background-image: linear-gradient(to right, rgb(78, 248, 185) 0%, rgb(8, 122, 148) 50%, rgb(78, 248, 185) 100%);
+  background-position: right center;
+  transition: 0.5s;
+}
+
+@font-face {
+  font-family: 'Beauty';
+  src: url('../../assets/fonts/IntroScriptDemo-Medium.otf');
+}
+
+.sign-up-title {
+  font-family: "Beauty";
+  font-size: 3vw;
+  color: #033c71;
+}
