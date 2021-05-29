@@ -27,10 +27,16 @@ public class User {
     private String password;
 
     @NotBlank
-    private String name;
+    private String firstName;
+
+    @NotBlank
+    private String lastName;
 
     @NotBlank
     private boolean isLoggedIn;
+
+    @NotBlank
+    private String phoneNumber;
 
     public User(String email, String password) {
         this.email = email;
@@ -58,8 +64,10 @@ public class User {
                 "id=" + id +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
-                ", name='" + name + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 ", isLoggedIn=" + isLoggedIn +
+                ", phoneNumber='" + phoneNumber + '\'' +
                 '}';
     }
 }

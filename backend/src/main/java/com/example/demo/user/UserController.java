@@ -1,10 +1,7 @@
 package com.example.demo.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -53,9 +50,22 @@ public class UserController {
         }
         return Status.FAILURE;
     }
-    @DeleteMapping("/users/all")
-    public Status deleteUsers() {
-        userRepository.deleteAll();
-        return Status.SUCCESS;
+
+    @PatchMapping("/users/{id}")
+    public void updateUser(@PathVariable Long id,
+                           @Valid @RequestBody User newUser) {
+        userRepository.findById(id)
+                .map(user -> {
+                    user.setFirstName(newUser.getFirstName().equals("") ? "" : newUser.getFirstName());
+                    user.setLastName(newUser.getLastName().equals("") ? "" : newUser.getLastName());
+                    user.setEmail(newUser.getEmail().equals("") ? "" : newUser.getEmail());
+                    user.setPassword(newUser.getPassword().equals("") ? "" : newUser.getPassword());
+                    user.setPhoneNumber(newUser.getPhoneNumber().equals("") ? "" : newUser.getPhoneNumber());
+                    return userRepository.save(user);
+                })
+                .orElseGet(() -> {
+                    newUser.setId(id);
+                    return userRepository.save(newUser);
+                });
     }
 }
