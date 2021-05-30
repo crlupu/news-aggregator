@@ -1,5 +1,7 @@
 package com.example.demo.scrapper;
 
+import com.example.demo.news.News;
+import com.example.demo.news.NewsRepository;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -185,7 +187,7 @@ public class Scrapper {
     }
 
     private boolean isArticleAlreadyScrapped(String title) {
-        List<News> news = this.newsRepository.findAll();
+        Iterable<News> news = this.newsRepository.findAll();
 
         for(News article : news) {
             if (article.getTitle().equals(title)) {
