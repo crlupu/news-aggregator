@@ -27,6 +27,8 @@ import { NewsItemComponent } from './news-item/news-item.component';
 import { NewsByTopicComponent } from './news-by-topic/news-by-topic.component';
 import { NewsBySourceComponent } from './news-by-source/news-by-source.component';
 import { DeleteNewsComponent } from './delete-news/delete-news.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { TermsComponent } from './terms/terms.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,8 @@ import { DeleteNewsComponent } from './delete-news/delete-news.component';
     NewsItemComponent,
     NewsByTopicComponent,
     NewsBySourceComponent,
-    DeleteNewsComponent
+    DeleteNewsComponent,
+    TermsComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +61,8 @@ import { DeleteNewsComponent } from './delete-news/delete-news.component';
     HttpClientModule,
     MatPaginatorModule,
     NgxPaginationModule,
-    MatChipsModule
+    MatChipsModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

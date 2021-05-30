@@ -71,10 +71,10 @@ export class SignInComponent implements OnInit {
           // change this to save in localstorage
           if (response) {
             localStorage.setItem('firstName', response.firstName);
-            localStorage.setItem('secondName', response.secondName);
+            localStorage.setItem('lastName', response.lastName);
             localStorage.setItem('email', response.email);
             localStorage.setItem('password', response.password);
-            localStorage.setItem('telephone', response.telephone);
+            localStorage.setItem('phoneNumber', response.phoneNumber);
             localStorage.setItem('id', response.id);
             localStorage.setItem('role', response.role);
             //redirect to home page
