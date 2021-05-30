@@ -11,10 +11,11 @@ public class UserController {
     @Autowired
     UserRepository userRepository;
 
+    @CrossOrigin
     @PostMapping("/users/register")
     public Status registerUser(@Valid @RequestBody User newUser) {
         List<User> users = userRepository.findAll();
-
+        System.out.println("Registering user...");
         for (User user : users) {
             if (user.equals(newUser)) {
                 return Status.USER_ALREADY_EXISTS;
@@ -52,20 +53,17 @@ public class UserController {
     }
 
     @PatchMapping("/users/{id}")
-    public void updateUser(@PathVariable Long id,
-                           @Valid @RequestBody User newUser) {
-        userRepository.findById(id)
-                .map(user -> {
-                    user.setFirstName(newUser.getFirstName().equals("") ? "" : newUser.getFirstName());
-                    user.setLastName(newUser.getLastName().equals("") ? "" : newUser.getLastName());
-                    user.setEmail(newUser.getEmail().equals("") ? "" : newUser.getEmail());
-                    user.setPassword(newUser.getPassword().equals("") ? "" : newUser.getPassword());
-                    user.setPhoneNumber(newUser.getPhoneNumber().equals("") ? "" : newUser.getPhoneNumber());
-                    return userRepository.save(user);
-                })
-                .orElseGet(() -> {
-                    newUser.setId(id);
-                    return userRepository.save(newUser);
-                });
+    public void updateUser(@PathVariable Long id, @Valid @RequestBody User newUser) {
+        userRepository.findById(id).map(user -> {
+            user.setFirstName(newUser.getFirstName().equals("") ? "" : newUser.getFirstName());
+            user.setLastName(newUser.getLastName().equals("") ? "" : newUser.getLastName());
+            user.setEmail(newUser.getEmail().equals("") ? "" : newUser.getEmail());
+            user.setPassword(newUser.getPassword().equals("") ? "" : newUser.getPassword());
+            user.setPhoneNumber(newUser.getPhoneNumber().equals("") ? "" : newUser.getPhoneNumber());
+            return userRepository.save(user);
+        }).orElseGet(() -> {
+            newUser.setId(id);
+            return userRepository.save(newUser);
+        });
     }
 }

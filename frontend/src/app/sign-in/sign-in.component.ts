@@ -4,6 +4,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NewsService } from '../services/news.service';
 import { Router } from '@angular/router';
+import { User, ConfigureService } from '../configure.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -20,13 +21,14 @@ export class SignInComponent implements OnInit {
   constructor(
     private signUpSnackBar: MatSnackBar,
     private newsService: NewsService,
-    public router: Router
+    public router: Router,
+    private apiService: ConfigureService
   ) {}
 
   ngOnInit() {
-    if (this.newsService.getSignedIn()) {
-      this.router.navigate(['/news']);
-    }
+    // if (this.newsService.getSignedIn()) {
+    //   this.router.navigate(['/news']);
+    // }
     this.origPass = '';
     this.emailFormControl = new FormControl('', [
       Validators.required,
@@ -56,16 +58,31 @@ export class SignInComponent implements OnInit {
       });
       return;
     } else {
-      // sign in request
-      this.signUpSnackBar.open('You are succesfully signed in!', 'Close', {
-        horizontalPosition: 'center',
-        verticalPosition: 'top',
-        duration: 5000,
-        panelClass: ['success-snackbar']
-      });
-
-      this.newsService.setSignedIn(true);
-      //redirect to home page
+      let user = new User();
+      user.email = this.emailFormControl.value;
+      user.password = this.origPass;
+      this.apiService.loginRequest(user).subscribe(
+        response => {
+          console.log('response', response);
+          this.signUpSnackBar.open('You are succesfully signed in!', 'Close', {
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+            duration: 5000,
+            panelClass: ['success-snackbar']
+          });
+          // change this to save in localstorage
+          this.newsService.setSignedIn(true);
+          //redirect to home page
+        },
+        error => {
+          this.signUpSnackBar.open(error, 'Close', {
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+            duration: 5000,
+            panelClass: ['error-snackbar']
+          });
+        }
+      );
     }
   }
 }

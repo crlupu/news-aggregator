@@ -3,6 +3,7 @@ import { Validators, FormControl } from '@angular/forms';
 import { MyErrorStateMatcher } from '../sign-up/sign-up.component';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { User, ConfigureService } from '../configure.service';
 
 @Component({
   selector: 'app-edit-profile',
@@ -29,7 +30,8 @@ export class EditProfileComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<EditProfileComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private apiService: ConfigureService
   ) {}
 
   ngOnInit(): void {}
@@ -173,31 +175,34 @@ export class EditProfileComponent implements OnInit {
       });
       return;
     }
-    let changes = {
-      firstName: this.firstName,
-      secondName: this.secondName,
-      telephone: this.telephone,
-      email: this.emailFormControl.value,
-      password: this.origPass
-    };
-    // request to make
-    if (true) {
-      this.dialogRef.close();
-      this.snackBar.open('Changed succesfully saved! !', 'Ok', {
-        horizontalPosition: 'center',
-        verticalPosition: 'top',
-        duration: 5000,
-        panelClass: ['success-snackbar']
-      });
-      //refresh page
-    } else {
-      this.snackBar.open('Error! Try one more time please.', 'Close', {
-        horizontalPosition: 'center',
-        verticalPosition: 'top',
-        duration: 5000,
-        panelClass: ['error-snackbar']
-      });
-    }
+    let user = new User();
+    user.firstName = this.firstName;
+    user.secondName = this.secondName;
+    user.email = this.emailFormControl.value;
+    user.telephone = this.telephone;
+    user.password = this.origPass;
+
+    // const userId = localStorage.getItem('userId');
+    // this.apiService.updateUserRequest(user, userId).subscribe(
+    //   response => {
+    //     console.log('response', response);
+    //     this.dialogRef.close();
+    //     this.snackBar.open('Changed succesfully saved! !', 'Ok', {
+    //       horizontalPosition: 'center',
+    //       verticalPosition: 'top',
+    //       duration: 5000,
+    //       panelClass: ['success-snackbar']
+    //     });
+    //   },
+    //   error => {
+    //     this.snackBar.open(error, 'Close', {
+    //       horizontalPosition: 'center',
+    //       verticalPosition: 'top',
+    //       duration: 5000,
+    //       panelClass: ['error-snackbar']
+    //     });
+    //   }
+    // );
   }
 
   cancel() {

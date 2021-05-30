@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<!-- saved from url=(0029)http://localhost:4200/sign-in -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>Frontend</title>
+  <!--<base href="/">--><base href=".">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="http://localhost:4200/favicon.ico">
+  <link rel="preconnect" href="https://fonts.gstatic.com/">
+  <link href="./Frontend_files/css2" rel="stylesheet">
+  <link href="./Frontend_files/icon" rel="stylesheet">
+<link rel="stylesheet" href="./Frontend_files/styles.css"><style>@font-face {
+  font-family: "SemiBold";
+  src: url('JosefinSans-SemiBold.ttf');
+}
+@font-face {
+  font-family: "Bold";
+  src: url('JosefinSans-Bold.ttf');
+}
+@font-face {
+  font-family: "Regular";
+  src: url('JosefinSans-Regular.ttf');
+}
+@font-face {
+  font-family: "Beauty";
+  src: url('IntroScriptDemo-Medium.otf');
+}
+  .error-snackbar {
+  background-color: #b41f1f !important;
+  color: white;
+}
+  .success-snackbar {
+  background-color: #349e14 !important;
+  color: white;
+}
+  .mat-focus-indicator {
+  background-color: white !important;
+  color: black;
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFwcC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLHVCQUFBO0VBQ0Esb0NBQUE7QUFDRjtBQUVBO0VBQ0UsbUJBQUE7RUFDQSxnQ0FBQTtBQUFGO0FBR0E7RUFDRSxzQkFBQTtFQUNBLG1DQUFBO0FBREY7QUFJQTtFQUNFLHFCQUFBO0VBQ0Esc0NBQUE7QUFGRjtBQUtBO0VBQ0Usb0NBQUE7RUFDQSxZQUFBO0FBSEY7QUFNQTtFQUNFLG9DQUFBO0VBQ0EsWUFBQTtBQUhGO0FBTUE7RUFDRSxrQ0FBQTtFQUNBLFlBQUE7QUFIRiIsImZpbGUiOiJhcHAuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJAZm9udC1mYWNlIHtcbiAgZm9udC1mYW1pbHk6ICdTZW1pQm9sZCc7XG4gIHNyYzogdXJsKCcuLi9hc3NldHMvZm9udHMvSm9zZWZpblNhbnMtU2VtaUJvbGQudHRmJyk7XG59XG5cbkBmb250LWZhY2Uge1xuICBmb250LWZhbWlseTogJ0JvbGQnO1xuICBzcmM6IHVybCgnLi4vYXNzZXRzL2ZvbnRzL0pvc2VmaW5TYW5zLUJvbGQudHRmJyk7XG59XG5cbkBmb250LWZhY2Uge1xuICBmb250LWZhbWlseTogJ1JlZ3VsYXInO1xuICBzcmM6IHVybCgnLi4vYXNzZXRzL2ZvbnRzL0pvc2VmaW5TYW5zLVJlZ3VsYXIudHRmJyk7XG59XG5cbkBmb250LWZhY2Uge1xuICBmb250LWZhbWlseTogJ0JlYXV0eSc7XG4gIHNyYzogdXJsKCcuLi9hc3NldHMvZm9udHMvSW50cm9TY3JpcHREZW1vLU1lZGl1bS5vdGYnKTtcbn1cblxuOjpuZy1kZWVwIC5lcnJvci1zbmFja2JhciB7XG4gIGJhY2tncm91bmQtY29sb3I6IHJnYigxODAsIDMxLCAzMSkgIWltcG9ydGFudDtcbiAgY29sb3I6IHdoaXRlO1xufVxuXG46Om5nLWRlZXAgLnN1Y2Nlc3Mtc25hY2tiYXIge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2IoNTIsIDE1OCwgMjApICFpbXBvcnRhbnQ7XG4gIGNvbG9yOiB3aGl0ZTtcbn1cblxuOjpuZy1kZWVwIC5tYXQtZm9jdXMtaW5kaWNhdG9yIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogcmdiKDI1NSwgMjU1LCAyNTUpICFpbXBvcnRhbnQ7XG4gIGNvbG9yOiBibGFjaztcbn1cbiJdfQ== */</style><style>.background-style[_ngcontent-okc-c103] {
+  width: 100vw;
+  height: 100vh;
+  background-image: url('sss.jpg');
+  background-size: 100vw 100vh;
+  color: white;
+  font-family: "Regular";
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm5ld3MuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxZQUFBO0VBQ0EsYUFBQTtFQUNBLGdDQUFBO0VBQ0EsNEJBQUE7RUFDQSxZQUFBO0VBQ0Esc0JBQUE7QUFDRiIsImZpbGUiOiJuZXdzLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmJhY2tncm91bmQtc3R5bGUge1xuICB3aWR0aDogMTAwdnc7XG4gIGhlaWdodDogMTAwdmg7XG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybCgnLi8uLi8uLi9hc3NldHMvc3NzLmpwZycpO1xuICBiYWNrZ3JvdW5kLXNpemU6IDEwMHZ3IDEwMHZoO1xuICBjb2xvcjogd2hpdGU7XG4gIGZvbnQtZmFtaWx5OiAnUmVndWxhcic7XG59XG4iXX0= */</style><style>.menu[_ngcontent-okc-c16] {
+  display: flex;
+  font-size: 1.3vw;
+  padding-top: 2vw;
+  font-family: "SemiBold";
+}
+
+.menu-item[_ngcontent-okc-c16] {
+  margin-left: 7vw;
+  text-decoration: none;
+  color: white;
+  font-family: "SemiBold";
+}
+
+.menu-item[_ngcontent-okc-c16]:hover {
+  color: #3dddd5;
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm1lbnUuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxhQUFBO0VBQ0EsZ0JBQUE7RUFDQSxnQkFBQTtFQUNBLHVCQUFBO0FBQ0Y7O0FBRUE7RUFDRSxnQkFBQTtFQUNBLHFCQUFBO0VBQ0EsWUFBQTtFQUNBLHVCQUFBO0FBQ0Y7O0FBRUE7RUFDRSxjQUFBO0FBQ0YiLCJmaWxlIjoibWVudS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5tZW51IHtcbiAgZGlzcGxheTogZmxleDtcbiAgZm9udC1zaXplOiAxLjN2dztcbiAgcGFkZGluZy10b3A6IDJ2dztcbiAgZm9udC1mYW1pbHk6ICdTZW1pQm9sZCc7XG59XG5cbi5tZW51LWl0ZW0ge1xuICBtYXJnaW4tbGVmdDogN3Z3O1xuICB0ZXh0LWRlY29yYXRpb246IG5vbmU7XG4gIGNvbG9yOiB3aGl0ZTtcbiAgZm9udC1mYW1pbHk6ICdTZW1pQm9sZCc7XG59XG5cbi5tZW51LWl0ZW06aG92ZXIge1xuICBjb2xvcjogcmdiYSg2MSwgMjIxLCAyMTMsIDI1NSk7XG59XG4iXX0= */</style><style>.background-style[_ngcontent-okc-c92] {
+  width: 100vw;
+  height: 100vh;
+  background-image: url('yes.jpg');
+  background-size: 100vw 100vh;
+  color: white;
+}
+
+.menu[_ngcontent-okc-c92] {
+  display: flex;
+  font-size: 1.3vw;
+  padding-top: 2vw;
+  font-family: "SemiBold";
+}
+
+.menu-item[_ngcontent-okc-c92] {
+  margin-left: 7vw;
+  text-decoration: none;
+  color: white;
+  font-family: "SemiBold";
+}
+
+.menu-item[_ngcontent-okc-c92]:hover {
+  color: #3dddd5;
+}
+
+.example-full-width[_ngcontent-okc-c92] {
+  width: 100%;
+}
+
+.div-form[_ngcontent-okc-c92] {
+  text-align: center;
+  width: 100%;
+  min-width: 150px;
+  max-width: 680px;
+  background-color: white;
+  margin: 12vw auto 0;
+  padding: 2vw;
+  color: black;
+  border-radius: 40px;
+  font-size: 1.4vw;
+}
+
+.button-get-started[_ngcontent-okc-c92] {
+  font-size: 1.7vw;
+  background-color: white;
+  font-family: "Regular";
+  border-radius: 22px;
+  border: none;
+  padding: 15px 20px;
+  margin-top: 4vw;
+  text-decoration: none;
+  color: black;
+  font-family: "Beauty";
+}
+
+.button-get-started[_ngcontent-okc-c92]:hover {
+  background-color: white;
+}
+
+.button-get-started[_ngcontent-okc-c92]:hover {
+  color: white;
+  background-size: 200% auto;
+  background-image: linear-gradient(to right, #4ef8b9 0%, #087a94 50%, #4ef8b9 100%);
+  background-position: right center;
+  transition: 0.5s;
+}
+
+@font-face {
+  font-family: "Beauty";
+  src: url('IntroScriptDemo-Medium.otf');
+}
+
+.sign-up-title[_ngcontent-okc-c92] {
+  font-family: "Beauty";
+  font-size: 3vw;
+  color: #033c71;
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNpZ24taW4uY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxZQUFBO0VBQ0EsYUFBQTtFQUNBLGdDQUFBO0VBQ0EsNEJBQUE7RUFDQSxZQUFBO0FBQ0Y7O0FBRUE7RUFDRSxhQUFBO0VBQ0EsZ0JBQUE7RUFDQSxnQkFBQTtFQUNBLHVCQUFBO0FBQ0Y7O0FBRUE7RUFDRSxnQkFBQTtFQUNBLHFCQUFBO0VBQ0EsWUFBQTtFQUNBLHVCQUFBO0FBQ0Y7O0FBRUE7RUFDRSxjQUFBO0FBQ0Y7O0FBR0E7RUFDRSxXQUFBO0FBQUY7O0FBR0E7RUFDRSxrQkFBQTtFQUNBLFdBQUE7RUFDQSxnQkFBQTtFQUNBLGdCQUFBO0VBQ0EsdUJBQUE7RUFDQSxtQkFBQTtFQUNBLFlBQUE7RUFDQSxZQUFBO0VBQ0EsbUJBQUE7RUFDQSxnQkFBQTtBQUFGOztBQUlBO0VBQ0UsZ0JBQUE7RUFDQSx1QkFBQTtFQUNBLHNCQUFBO0VBQ0EsbUJBQUE7RUFDQSxZQUFBO0VBQ0Esa0JBQUE7RUFDQSxlQUFBO0VBQ0EscUJBQUE7RUFDQSxZQUFBO0VBQ0EscUJBQUE7QUFERjs7QUFJQTtFQUNFLHVCQUFBO0FBREY7O0FBSUE7RUFDRSxZQUFBO0VBQ0EsMEJBQUE7RUFDQSxrRkFBQTtFQUNBLGlDQUFBO0VBQ0EsZ0JBQUE7QUFERjs7QUFJQTtFQUNFLHFCQUFBO0VBQ0Esc0NBQUE7QUFERjs7QUFJQTtFQUNFLHFCQUFBO0VBQ0EsY0FBQTtFQUNBLGNBQUE7QUFGRiIsImZpbGUiOiJzaWduLWluLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmJhY2tncm91bmQtc3R5bGUge1xuICB3aWR0aDogMTAwdnc7XG4gIGhlaWdodDogMTAwdmg7XG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybCgnLi8uLi8uLi9hc3NldHMveWVzLmpwZycpO1xuICBiYWNrZ3JvdW5kLXNpemU6IDEwMHZ3IDEwMHZoO1xuICBjb2xvcjogd2hpdGU7XG59XG5cbi5tZW51IHtcbiAgZGlzcGxheTogZmxleDtcbiAgZm9udC1zaXplOiAxLjN2dztcbiAgcGFkZGluZy10b3A6IDJ2dztcbiAgZm9udC1mYW1pbHk6ICdTZW1pQm9sZCc7XG59XG5cbi5tZW51LWl0ZW0ge1xuICBtYXJnaW4tbGVmdDogN3Z3O1xuICB0ZXh0LWRlY29yYXRpb246IG5vbmU7XG4gIGNvbG9yOiB3aGl0ZTtcbiAgZm9udC1mYW1pbHk6ICdTZW1pQm9sZCc7XG59XG5cbi5tZW51LWl0ZW06aG92ZXIge1xuICBjb2xvcjogcmdiYSg2MSwgMjIxLCAyMTMsIDI1NSk7XG59XG5cblxuLmV4YW1wbGUtZnVsbC13aWR0aCB7XG4gIHdpZHRoOiAxMDAlO1xufVxuXG4uZGl2LWZvcm0ge1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIHdpZHRoOiAxMDAlO1xuICBtaW4td2lkdGg6IDE1MHB4O1xuICBtYXgtd2lkdGg6IDY4MHB4O1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB3aGl0ZTtcbiAgbWFyZ2luOiAxMnZ3IGF1dG8gMDtcbiAgcGFkZGluZzogMnZ3O1xuICBjb2xvcjogYmxhY2s7XG4gIGJvcmRlci1yYWRpdXM6IDQwcHg7XG4gIGZvbnQtc2l6ZTogMS40dnc7XG59XG5cblxuLmJ1dHRvbi1nZXQtc3RhcnRlZCB7XG4gIGZvbnQtc2l6ZTogMS43dnc7XG4gIGJhY2tncm91bmQtY29sb3I6IHdoaXRlO1xuICBmb250LWZhbWlseTogJ1JlZ3VsYXInO1xuICBib3JkZXItcmFkaXVzOiAyMnB4O1xuICBib3JkZXI6IG5vbmU7XG4gIHBhZGRpbmc6IDE1cHggMjBweDtcbiAgbWFyZ2luLXRvcDogNHZ3O1xuICB0ZXh0LWRlY29yYXRpb246IG5vbmU7XG4gIGNvbG9yOiBibGFjaztcbiAgZm9udC1mYW1pbHk6IFwiQmVhdXR5XCI7XG59XG5cbi5idXR0b24tZ2V0LXN0YXJ0ZWQ6aG92ZXIge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB3aGl0ZTtcbn1cblxuLmJ1dHRvbi1nZXQtc3RhcnRlZDpob3ZlciB7XG4gIGNvbG9yOiB3aGl0ZTtcbiAgYmFja2dyb3VuZC1zaXplOiAyMDAlIGF1dG87XG4gIGJhY2tncm91bmQtaW1hZ2U6IGxpbmVhci1ncmFkaWVudCh0byByaWdodCwgcmdiKDc4LCAyNDgsIDE4NSkgMCUsIHJnYig4LCAxMjIsIDE0OCkgNTAlLCByZ2IoNzgsIDI0OCwgMTg1KSAxMDAlKTtcbiAgYmFja2dyb3VuZC1wb3NpdGlvbjogcmlnaHQgY2VudGVyO1xuICB0cmFuc2l0aW9uOiAwLjVzO1xufVxuXG5AZm9udC1mYWNlIHtcbiAgZm9udC1mYW1pbHk6ICdCZWF1dHknO1xuICBzcmM6IHVybCgnLi4vLi4vYXNzZXRzL2ZvbnRzL0ludHJvU2NyaXB0RGVtby1NZWRpdW0ub3RmJyk7XG59XG5cbi5zaWduLXVwLXRpdGxlIHtcbiAgZm9udC1mYW1pbHk6IFwiQmVhdXR5XCI7XG4gIGZvbnQtc2l6ZTogM3Z3O1xuICBjb2xvcjogIzAzM2M3MTtcbn1cbiJdfQ== */</style><style>.mat-form-field{display:inline-block;position:relative;text-align:left}[dir=rtl] .mat-form-field{text-align:right}.mat-form-field-wrapper{position:relative}.mat-form-field-flex{display:inline-flex;align-items:baseline;box-sizing:border-box;width:100%}.mat-form-field-prefix,.mat-form-field-suffix{white-space:nowrap;flex:none;position:relative}.mat-form-field-infix{display:block;position:relative;flex:auto;min-width:0;width:180px}.cdk-high-contrast-active .mat-form-field-infix{border-image:linear-gradient(transparent, transparent)}.mat-form-field-label-wrapper{position:absolute;left:0;box-sizing:content-box;width:100%;height:100%;overflow:hidden;pointer-events:none}[dir=rtl] .mat-form-field-label-wrapper{left:auto;right:0}.mat-form-field-label{position:absolute;left:0;font:inherit;pointer-events:none;width:100%;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;transform-origin:0 0;transition:transform 400ms cubic-bezier(0.25, 0.8, 0.25, 1),color 400ms cubic-bezier(0.25, 0.8, 0.25, 1),width 400ms cubic-bezier(0.25, 0.8, 0.25, 1);display:none}[dir=rtl] .mat-form-field-label{transform-origin:100% 0;left:auto;right:0}.mat-form-field-empty.mat-form-field-label,.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label{display:block}.mat-form-field-autofill-control:-webkit-autofill+.mat-form-field-label-wrapper .mat-form-field-label{display:none}.mat-form-field-can-float .mat-form-field-autofill-control:-webkit-autofill+.mat-form-field-label-wrapper .mat-form-field-label{display:block;transition:none}.mat-input-server:focus+.mat-form-field-label-wrapper .mat-form-field-label,.mat-input-server[placeholder]:not(:placeholder-shown)+.mat-form-field-label-wrapper .mat-form-field-label{display:none}.mat-form-field-can-float .mat-input-server:focus+.mat-form-field-label-wrapper .mat-form-field-label,.mat-form-field-can-float .mat-input-server[placeholder]:not(:placeholder-shown)+.mat-form-field-label-wrapper .mat-form-field-label{display:block}.mat-form-field-label:not(.mat-form-field-empty){transition:none}.mat-form-field-underline{position:absolute;width:100%;pointer-events:none;transform:scale3d(1, 1.0001, 1)}.mat-form-field-ripple{position:absolute;left:0;width:100%;transform-origin:50%;transform:scaleX(0.5);opacity:0;transition:background-color 300ms cubic-bezier(0.55, 0, 0.55, 0.2)}.mat-form-field.mat-focused .mat-form-field-ripple,.mat-form-field.mat-form-field-invalid .mat-form-field-ripple{opacity:1;transform:none;transition:transform 300ms cubic-bezier(0.25, 0.8, 0.25, 1),opacity 100ms cubic-bezier(0.25, 0.8, 0.25, 1),background-color 300ms cubic-bezier(0.25, 0.8, 0.25, 1)}.mat-form-field-subscript-wrapper{position:absolute;box-sizing:border-box;width:100%;overflow:hidden}.mat-form-field-subscript-wrapper .mat-icon,.mat-form-field-label-wrapper .mat-icon{width:1em;height:1em;font-size:inherit;vertical-align:baseline}.mat-form-field-hint-wrapper{display:flex}.mat-form-field-hint-spacer{flex:1 0 1em}.mat-error{display:block}.mat-form-field-control-wrapper{position:relative}.mat-form-field-hint-end{order:1}.mat-form-field._mat-animation-noopable .mat-form-field-label,.mat-form-field._mat-animation-noopable .mat-form-field-ripple{transition:none}
+</style><style>.mat-form-field-appearance-fill .mat-form-field-flex{border-radius:4px 4px 0 0;padding:.75em .75em 0 .75em}.cdk-high-contrast-active .mat-form-field-appearance-fill .mat-form-field-flex{outline:solid 1px}.mat-form-field-appearance-fill .mat-form-field-underline::before{content:"";display:block;position:absolute;bottom:0;height:1px;width:100%}.mat-form-field-appearance-fill .mat-form-field-ripple{bottom:0;height:2px}.cdk-high-contrast-active .mat-form-field-appearance-fill .mat-form-field-ripple{height:0;border-top:solid 2px}.mat-form-field-appearance-fill:not(.mat-form-field-disabled) .mat-form-field-flex:hover~.mat-form-field-underline .mat-form-field-ripple{opacity:1;transform:none;transition:opacity 600ms cubic-bezier(0.25, 0.8, 0.25, 1)}.mat-form-field-appearance-fill._mat-animation-noopable:not(.mat-form-field-disabled) .mat-form-field-flex:hover~.mat-form-field-underline .mat-form-field-ripple{transition:none}.mat-form-field-appearance-fill .mat-form-field-subscript-wrapper{padding:0 1em}
+</style><style>.mat-input-element{font:inherit;background:transparent;color:currentColor;border:none;outline:none;padding:0;margin:0;width:100%;max-width:100%;vertical-align:bottom;text-align:inherit;box-sizing:content-box}.mat-input-element:-moz-ui-invalid{box-shadow:none}.mat-input-element::-ms-clear,.mat-input-element::-ms-reveal{display:none}.mat-input-element,.mat-input-element::-webkit-search-cancel-button,.mat-input-element::-webkit-search-decoration,.mat-input-element::-webkit-search-results-button,.mat-input-element::-webkit-search-results-decoration{-webkit-appearance:none}.mat-input-element::-webkit-contacts-auto-fill-button,.mat-input-element::-webkit-caps-lock-indicator,.mat-input-element::-webkit-credentials-auto-fill-button{visibility:hidden}.mat-input-element[type=date],.mat-input-element[type=datetime],.mat-input-element[type=datetime-local],.mat-input-element[type=month],.mat-input-element[type=week],.mat-input-element[type=time]{line-height:1}.mat-input-element[type=date]::after,.mat-input-element[type=datetime]::after,.mat-input-element[type=datetime-local]::after,.mat-input-element[type=month]::after,.mat-input-element[type=week]::after,.mat-input-element[type=time]::after{content:" ";white-space:pre;width:1px}.mat-input-element::-webkit-inner-spin-button,.mat-input-element::-webkit-calendar-picker-indicator,.mat-input-element::-webkit-clear-button{font-size:.75em}.mat-input-element::placeholder{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;transition:color 400ms 133.3333333333ms cubic-bezier(0.25, 0.8, 0.25, 1)}.mat-input-element::placeholder:-ms-input-placeholder{-ms-user-select:text}.mat-input-element::-moz-placeholder{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;transition:color 400ms 133.3333333333ms cubic-bezier(0.25, 0.8, 0.25, 1)}.mat-input-element::-moz-placeholder:-ms-input-placeholder{-ms-user-select:text}.mat-input-element::-webkit-input-placeholder{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;transition:color 400ms 133.3333333333ms cubic-bezier(0.25, 0.8, 0.25, 1)}.mat-input-element::-webkit-input-placeholder:-ms-input-placeholder{-ms-user-select:text}.mat-input-element:-ms-input-placeholder{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;transition:color 400ms 133.3333333333ms cubic-bezier(0.25, 0.8, 0.25, 1)}.mat-input-element:-ms-input-placeholder:-ms-input-placeholder{-ms-user-select:text}.mat-form-field-hide-placeholder .mat-input-element::placeholder{color:transparent !important;-webkit-text-fill-color:transparent;transition:none}.mat-form-field-hide-placeholder .mat-input-element::-moz-placeholder{color:transparent !important;-webkit-text-fill-color:transparent;transition:none}.mat-form-field-hide-placeholder .mat-input-element::-webkit-input-placeholder{color:transparent !important;-webkit-text-fill-color:transparent;transition:none}.mat-form-field-hide-placeholder .mat-input-element:-ms-input-placeholder{color:transparent !important;-webkit-text-fill-color:transparent;transition:none}textarea.mat-input-element{resize:vertical;overflow:auto}textarea.mat-input-element.cdk-textarea-autosize{resize:none}textarea.mat-input-element{padding:2px 0;margin:-2px 0}select.mat-input-element{-moz-appearance:none;-webkit-appearance:none;position:relative;background-color:transparent;display:inline-flex;box-sizing:border-box;padding-top:1em;top:-1em;margin-bottom:-1em}select.mat-input-element::-ms-expand{display:none}select.mat-input-element::-moz-focus-inner{border:0}select.mat-input-element:not(:disabled){cursor:pointer}select.mat-input-element::-ms-value{color:inherit;background:none}.mat-focused .cdk-high-contrast-active select.mat-input-element::-ms-value{color:inherit}.mat-form-field-type-mat-native-select .mat-form-field-infix::after{content:"";width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:5px solid;position:absolute;top:50%;right:0;margin-top:-2.5px;pointer-events:none}[dir=rtl] .mat-form-field-type-mat-native-select .mat-form-field-infix::after{right:auto;left:0}.mat-form-field-type-mat-native-select .mat-input-element{padding-right:15px}[dir=rtl] .mat-form-field-type-mat-native-select .mat-input-element{padding-right:0;padding-left:15px}.mat-form-field-type-mat-native-select .mat-form-field-label-wrapper{max-width:calc(100% - 10px)}.mat-form-field-type-mat-native-select.mat-form-field-appearance-outline .mat-form-field-infix::after{margin-top:-5px}.mat-form-field-type-mat-native-select.mat-form-field-appearance-fill .mat-form-field-infix::after{margin-top:-10px}
+</style><style>.mat-form-field-appearance-legacy .mat-form-field-label{transform:perspective(100px);-ms-transform:none}.mat-form-field-appearance-legacy .mat-form-field-prefix .mat-icon,.mat-form-field-appearance-legacy .mat-form-field-suffix .mat-icon{width:1em}.mat-form-field-appearance-legacy .mat-form-field-prefix .mat-icon-button,.mat-form-field-appearance-legacy .mat-form-field-suffix .mat-icon-button{font:inherit;vertical-align:baseline}.mat-form-field-appearance-legacy .mat-form-field-prefix .mat-icon-button .mat-icon,.mat-form-field-appearance-legacy .mat-form-field-suffix .mat-icon-button .mat-icon{font-size:inherit}.mat-form-field-appearance-legacy .mat-form-field-underline{height:1px}.cdk-high-contrast-active .mat-form-field-appearance-legacy .mat-form-field-underline{height:0;border-top:solid 1px}.mat-form-field-appearance-legacy .mat-form-field-ripple{top:0;height:2px;overflow:hidden}.cdk-high-contrast-active .mat-form-field-appearance-legacy .mat-form-field-ripple{height:0;border-top:solid 2px}.mat-form-field-appearance-legacy.mat-form-field-disabled .mat-form-field-underline{background-position:0;background-color:transparent}.cdk-high-contrast-active .mat-form-field-appearance-legacy.mat-form-field-disabled .mat-form-field-underline{border-top-style:dotted;border-top-width:2px}.mat-form-field-appearance-legacy.mat-form-field-invalid:not(.mat-focused) .mat-form-field-ripple{height:1px}
+</style><style>.mat-form-field-appearance-outline .mat-form-field-wrapper{margin:.25em 0}.mat-form-field-appearance-outline .mat-form-field-flex{padding:0 .75em 0 .75em;margin-top:-0.25em;position:relative}.mat-form-field-appearance-outline .mat-form-field-prefix,.mat-form-field-appearance-outline .mat-form-field-suffix{top:.25em}.mat-form-field-appearance-outline .mat-form-field-outline{display:flex;position:absolute;top:.25em;left:0;right:0;bottom:0;pointer-events:none}.mat-form-field-appearance-outline .mat-form-field-outline-start,.mat-form-field-appearance-outline .mat-form-field-outline-end{border:1px solid currentColor;min-width:5px}.mat-form-field-appearance-outline .mat-form-field-outline-start{border-radius:5px 0 0 5px;border-right-style:none}[dir=rtl] .mat-form-field-appearance-outline .mat-form-field-outline-start{border-right-style:solid;border-left-style:none;border-radius:0 5px 5px 0}.mat-form-field-appearance-outline .mat-form-field-outline-end{border-radius:0 5px 5px 0;border-left-style:none;flex-grow:1}[dir=rtl] .mat-form-field-appearance-outline .mat-form-field-outline-end{border-left-style:solid;border-right-style:none;border-radius:5px 0 0 5px}.mat-form-field-appearance-outline .mat-form-field-outline-gap{border-radius:.000001px;border:1px solid currentColor;border-left-style:none;border-right-style:none}.mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-outline-gap{border-top-color:transparent}.mat-form-field-appearance-outline .mat-form-field-outline-thick{opacity:0}.mat-form-field-appearance-outline .mat-form-field-outline-thick .mat-form-field-outline-start,.mat-form-field-appearance-outline .mat-form-field-outline-thick .mat-form-field-outline-end,.mat-form-field-appearance-outline .mat-form-field-outline-thick .mat-form-field-outline-gap{border-width:2px}.mat-form-field-appearance-outline.mat-focused .mat-form-field-outline,.mat-form-field-appearance-outline.mat-form-field-invalid .mat-form-field-outline{opacity:0;transition:opacity 100ms cubic-bezier(0.25, 0.8, 0.25, 1)}.mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick,.mat-form-field-appearance-outline.mat-form-field-invalid .mat-form-field-outline-thick{opacity:1}.mat-form-field-appearance-outline:not(.mat-form-field-disabled) .mat-form-field-flex:hover .mat-form-field-outline{opacity:0;transition:opacity 600ms cubic-bezier(0.25, 0.8, 0.25, 1)}.mat-form-field-appearance-outline:not(.mat-form-field-disabled) .mat-form-field-flex:hover .mat-form-field-outline-thick{opacity:1}.mat-form-field-appearance-outline .mat-form-field-subscript-wrapper{padding:0 1em}.mat-form-field-appearance-outline._mat-animation-noopable:not(.mat-form-field-disabled) .mat-form-field-flex:hover~.mat-form-field-outline,.mat-form-field-appearance-outline._mat-animation-noopable .mat-form-field-outline,.mat-form-field-appearance-outline._mat-animation-noopable .mat-form-field-outline-start,.mat-form-field-appearance-outline._mat-animation-noopable .mat-form-field-outline-end,.mat-form-field-appearance-outline._mat-animation-noopable .mat-form-field-outline-gap{transition:none}
+</style><style>.mat-form-field-appearance-standard .mat-form-field-flex{padding-top:.75em}.mat-form-field-appearance-standard .mat-form-field-underline{height:1px}.cdk-high-contrast-active .mat-form-field-appearance-standard .mat-form-field-underline{height:0;border-top:solid 1px}.mat-form-field-appearance-standard .mat-form-field-ripple{bottom:0;height:2px}.cdk-high-contrast-active .mat-form-field-appearance-standard .mat-form-field-ripple{height:0;border-top:solid 2px}.mat-form-field-appearance-standard.mat-form-field-disabled .mat-form-field-underline{background-position:0;background-color:transparent}.cdk-high-contrast-active .mat-form-field-appearance-standard.mat-form-field-disabled .mat-form-field-underline{border-top-style:dotted;border-top-width:2px}.mat-form-field-appearance-standard:not(.mat-form-field-disabled) .mat-form-field-flex:hover~.mat-form-field-underline .mat-form-field-ripple{opacity:1;transform:none;transition:opacity 600ms cubic-bezier(0.25, 0.8, 0.25, 1)}.mat-form-field-appearance-standard._mat-animation-noopable:not(.mat-form-field-disabled) .mat-form-field-flex:hover~.mat-form-field-underline .mat-form-field-ripple{transition:none}
+</style></head>
+<body class="mat-typography">
+  <app-root _nghost-okc-c104="" ng-version="12.0.1"><router-outlet _ngcontent-okc-c104=""></router-outlet><app-sign-in _nghost-okc-c92="" class="ng-star-inserted"><div _ngcontent-okc-c92="" class="background-style"><app-menu _ngcontent-okc-c92="" _nghost-okc-c16=""><div _ngcontent-okc-c16="" class="menu ng-star-inserted"><a _ngcontent-okc-c16="" routerlink="/main-page" class="menu-item" style="margin-left: 57vw;" ng-reflect-router-link="/main-page" href="http://localhost:4200/main-page">Home</a><a _ngcontent-okc-c16="" routerlink="/sign-in" class="menu-item" ng-reflect-router-link="/sign-in" href="http://localhost:4200/sign-in">Sign in</a><a _ngcontent-okc-c16="" routerlink="/sign-up" class="menu-item" ng-reflect-router-link="/sign-up" href="http://localhost:4200/sign-up">Sign up</a><a _ngcontent-okc-c16="" routerlink="/contact" class="menu-item" ng-reflect-router-link="/contact" href="http://localhost:4200/contact">Contact</a></div><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></app-menu><div _ngcontent-okc-c92="" class="div-form"><h1 _ngcontent-okc-c92="" class="sign-up-title">Sign In</h1><mat-form-field _ngcontent-okc-c92="" class="mat-form-field example-full-width ng-tns-c85-0 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-legacy mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder ng-untouched ng-pristine ng-invalid ng-star-inserted"><div class="mat-form-field-wrapper ng-tns-c85-0"><div class="mat-form-field-flex ng-tns-c85-0"><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><!--bindings={
+  "ng-reflect-ng-if": "0"
+}--><div class="mat-form-field-infix ng-tns-c85-0"><input _ngcontent-okc-c92="" type="email" matinput="" required="" class="mat-input-element mat-form-field-autofill-control ng-tns-c85-0 ng-untouched ng-pristine ng-invalid cdk-text-field-autofill-monitored" ng-reflect-type="email" ng-reflect-placeholder="Ex. pat@example.com" ng-reflect-required="true" ng-reflect-form="[object Object]" ng-reflect-error-state-matcher="[object Object]" id="mat-input-0" data-placeholder="Ex. pat@example.com" aria-invalid="false" aria-required="true"><span class="mat-form-field-label-wrapper ng-tns-c85-0"><label class="mat-form-field-label ng-tns-c85-0 mat-empty mat-form-field-empty ng-star-inserted" ng-reflect-disabled="true" id="mat-form-field-label-1" ng-reflect-ng-switch="true" for="mat-input-0" aria-owns="mat-input-0"><!--bindings={
+  "ng-reflect-ng-switch-case": "false"
+}--><mat-label _ngcontent-okc-c92="" class="ng-tns-c85-0 ng-star-inserted">Email</mat-label><!--bindings={
+  "ng-reflect-ng-switch-case": "true"
+}--><span aria-hidden="true" class="mat-placeholder-required mat-form-field-required-marker ng-tns-c85-0 ng-star-inserted"> *</span><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--></label><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--></span></div><!--bindings={
+  "ng-reflect-ng-if": "0"
+}--></div><div class="mat-form-field-underline ng-tns-c85-0 ng-star-inserted"><span class="mat-form-field-ripple ng-tns-c85-0"></span></div><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><div class="mat-form-field-subscript-wrapper ng-tns-c85-0" ng-reflect-ng-switch="hint"><!--bindings={
+  "ng-reflect-ng-switch-case": "error"
+}--><div class="mat-form-field-hint-wrapper ng-tns-c85-0 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);"><!--bindings={
+  "ng-reflect-ng-if": ""
+}--><div class="mat-form-field-hint-spacer ng-tns-c85-0"></div></div><!--bindings={
+  "ng-reflect-ng-switch-case": "hint"
+}--></div></div></mat-form-field><mat-form-field _ngcontent-okc-c92="" class="mat-form-field example-full-width ng-tns-c85-1 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-legacy mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder ng-untouched ng-pristine ng-invalid ng-star-inserted"><div class="mat-form-field-wrapper ng-tns-c85-1"><div class="mat-form-field-flex ng-tns-c85-1"><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><!--bindings={
+  "ng-reflect-ng-if": "0"
+}--><div class="mat-form-field-infix ng-tns-c85-1"><input _ngcontent-okc-c92="" type="password" matinput="" required="" class="mat-input-element mat-form-field-autofill-control ng-tns-c85-1 ng-untouched ng-pristine ng-invalid cdk-text-field-autofill-monitored" ng-reflect-type="password" ng-reflect-required="true" ng-reflect-model="" id="mat-input-1" aria-invalid="false" aria-required="true"><span class="mat-form-field-label-wrapper ng-tns-c85-1"><label class="mat-form-field-label ng-tns-c85-1 mat-empty mat-form-field-empty ng-star-inserted" ng-reflect-disabled="true" id="mat-form-field-label-3" ng-reflect-ng-switch="true" for="mat-input-1" aria-owns="mat-input-1"><!--bindings={
+  "ng-reflect-ng-switch-case": "false"
+}--><mat-label _ngcontent-okc-c92="" class="ng-tns-c85-1 ng-star-inserted">Password</mat-label><!--bindings={
+  "ng-reflect-ng-switch-case": "true"
+}--><span aria-hidden="true" class="mat-placeholder-required mat-form-field-required-marker ng-tns-c85-1 ng-star-inserted"> *</span><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--></label><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--></span></div><!--bindings={
+  "ng-reflect-ng-if": "0"
+}--></div><div class="mat-form-field-underline ng-tns-c85-1 ng-star-inserted"><span class="mat-form-field-ripple ng-tns-c85-1"></span></div><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><div class="mat-form-field-subscript-wrapper ng-tns-c85-1" ng-reflect-ng-switch="hint"><!--bindings={
+  "ng-reflect-ng-switch-case": "error"
+}--><div class="mat-form-field-hint-wrapper ng-tns-c85-1 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);"><!--bindings={
+  "ng-reflect-ng-if": ""
+}--><div class="mat-form-field-hint-spacer ng-tns-c85-1"></div></div><!--bindings={
+  "ng-reflect-ng-switch-case": "hint"
+}--></div></div></mat-form-field></div><div _ngcontent-okc-c92="" style="height: 6vw;"></div><div _ngcontent-okc-c92="" style="text-align: center;"><a _ngcontent-okc-c92="" class="button-get-started">Sign In</a></div></div></app-sign-in><!--container--></app-root>
+<script src="./Frontend_files/runtime.js" defer=""></script><script src="./Frontend_files/polyfills.js" defer=""></script><script src="http://localhost:4200/vendor.js" defer=""></script><script src="./Frontend_files/main.js" defer=""></script>
+
+<div class="cdk-live-announcer-element cdk-visually-hidden" aria-atomic="true" aria-live="polite"></div></body></html>

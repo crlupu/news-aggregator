@@ -6,3 +6,28 @@
   color: white;
   font-family: 'Regular';
 }
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 90%;
+  max-height: 90%;
+  margin: 7%
+}
+
+.item-div {
+  display: flex;
+  flex-direction: column;
+  width: 180px;
+  height: 300px;
+  background-color: #f7f7f7;
+  margin: 1%;
+  padding: 4%;
+  cursor: pointer;
+  color: black;
+  border-radius: 10px;
+  -webkit-box-shadow: 4px 4px 15px -13px rgba(0, 0, 0, 75);
+  -moz-box-shadow: 4px 4px 15px -13px rgba(0, 0, 0, 75);
+  box-shadow: 4px 4px 15px -13px rgba(0, 0, 0, 75);
+}

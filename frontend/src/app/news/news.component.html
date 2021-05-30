@@ -1,3 +1,17 @@
 <div class="background-style">
   <app-menu></app-menu>
+  <div class="wrapper">
+    <div *ngFor="let item of news" class="item-div" (click)="openItem(item)">
+      <p>{{item}}</p>
+
+    </div>
+  </div>
+
+  <div style="text-align: center; margin-top: 70vh">
+    <button mat-raised-button (click)="loadMoreNews()" style="margin-right : 2vw">
+      Load more news...
+    </button>
+  </div>
+
+
 </div>

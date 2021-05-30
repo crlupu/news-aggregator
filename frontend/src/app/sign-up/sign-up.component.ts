@@ -9,6 +9,8 @@ import { ErrorStateMatcher } from '@angular/material/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NewsService } from '../services/news.service';
 import { Router } from '@angular/router';
+import { ConfigureService } from '../configure.service';
+import { User } from '../configure.service';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -50,13 +52,14 @@ export class SignUpComponent implements OnInit {
   constructor(
     private signUpSnackBar: MatSnackBar,
     private newsService: NewsService,
-    private router: Router
+    private router: Router,
+    private apiService: ConfigureService
   ) {}
 
   ngOnInit(): void {
-    if (this.newsService.getSignedIn()) {
-      this.router.navigate(['/news']);
-    }
+    // if (this.newsService.getSignedIn()) {
+    //   this.router.navigate(['/news']);
+    // }
     this.initializeAll();
   }
 
@@ -220,23 +223,32 @@ export class SignUpComponent implements OnInit {
       });
       return;
     }
-    // request to make
-    if (true) {
-      this.signUpSnackBar.open('You are succesfully signed up!', 'Close', {
-        horizontalPosition: 'center',
-        verticalPosition: 'top',
-        duration: 5000,
-        panelClass: ['success-snackbar']
-      });
+    let user = new User();
+    user.firstName = this.firstName;
+    user.secondName = this.secondName;
+    user.email = this.emailFormControl.value;
+    user.telephone = this.telephone;
+    user.password = this.origPass;
 
-      //redirect to sign in or sign up
-    } else {
-      this.signUpSnackBar.open('Error! Try one more time please.', 'Close', {
-        horizontalPosition: 'center',
-        verticalPosition: 'top',
-        duration: 5000,
-        panelClass: ['error-snackbar']
-      });
-    }
+    this.apiService.signUpRequest(user).subscribe(
+      response => {
+        console.log('response', response);
+        this.signUpSnackBar.open('You are succesfully signed up!', 'Close', {
+          horizontalPosition: 'center',
+          verticalPosition: 'top',
+          duration: 5000,
+          panelClass: ['success-snackbar']
+        });
+      },
+      error => {
+        console.log(error);
+        this.signUpSnackBar.open(error, 'Close', {
+          horizontalPosition: 'center',
+          verticalPosition: 'top',
+          duration: 5000,
+          panelClass: ['error-snackbar']
+        });
+      }
+    );
   }
 }
