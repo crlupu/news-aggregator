@@ -50,17 +50,17 @@ public class NewsController {
     public ResponseEntity<String> deleteNews(@PathVariable long id, @RequestParam long userId) {
         User user = userRepository.findById(userId).orElse(null);
         if (user == null) {
-            return new ResponseEntity<>("User not found", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("{\"response\":\"User not found\"}", HttpStatus.BAD_REQUEST);
         } else if (!user.getRole().equalsIgnoreCase("admin")) {
-            return new ResponseEntity<>("User doesn't have admin rights", HttpStatus.METHOD_NOT_ALLOWED);
+            return new ResponseEntity<>("{\"response\":\"User doesn't have admin rights\"}", HttpStatus.METHOD_NOT_ALLOWED);
         } else {
             News news = newsRepository.findById(id).orElse(null);
 
             if (news == null) {
-                return new ResponseEntity<>("News not found", HttpStatus.BAD_REQUEST);
+                return new ResponseEntity<>("{\"response\":\"News not found\"}", HttpStatus.BAD_REQUEST);
             } else {
                 newsRepository.deleteById(id);
-                return new ResponseEntity<>("News successfully deleted", HttpStatus.OK);
+                return new ResponseEntity<>("{\"response\":\"News successfully deleted\"}", HttpStatus.OK);
             }
         }
 
