@@ -38,6 +38,8 @@ public class User {
     @NotBlank
     private String phoneNumber;
 
+    private String role = "user";
+
     public User(String email, String password) {
         this.email = email;
         this.password = password;
@@ -68,6 +70,7 @@ public class User {
                 ", lastName='" + lastName + '\'' +
                 ", isLoggedIn=" + isLoggedIn +
                 ", phoneNumber='" + phoneNumber + '\'' +
+                ", role='" + role + '\'' +
                 '}';
     }
 }

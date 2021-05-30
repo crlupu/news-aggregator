@@ -13,7 +13,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 
 import java.io.IOException;
-import java.util.List;
+import java.util.Random;
 
 @Configuration
 @EnableScheduling
@@ -22,21 +22,69 @@ public class Scrapper {
     @Autowired
     NewsRepository newsRepository;
 
-    @Scheduled(fixedDelay = 100000)
+    @Scheduled(fixedDelay = 10000)
     public void scrapeData() {
-        getTheVergeNews("https://www.theverge.com/tech");
-        getTheVergeNews("https://www.theverge.com/entertainment");
-        getSkySportsNews();
-        getReutersNews();
-        getTheEpochTimesNews();
+        scrapeArticles(new Source(
+                "https://www.theverge.com/tech",
+                "h2.c-entry-box--compact__title:not(.c-entry-box--group-4-up__title-haslogo) a",
+                ".c-entry-content > p",
+                "picture.c-picture > img",
+                "h1.c-page-title",
+                "The Verge",
+                "tech",
+                ""
+        ));
+        scrapeArticles(new Source(
+                "https://www.skysports.com/news-wire",
+                "a.news-list__figure",
+                ".sdc-article-body > p",
+                "img.sdc-article-image__item",
+                ".sdc-article-header__long-title",
+                "Sky Sports",
+                "sports",
+                ""
+        ));
+
+//        scrapeArticles(new Source(
+//                "https://www.theverge.com/entertainment",
+//                "h2.c-entry-box--compact__title:not(.c-entry-box--group-4-up__title-haslogo) a",
+//                ".c-entry-content > p",
+//                "picture.c-picture > img",
+//                "h1.c-page-title",
+//                "The Verge",
+//                "entertainment",
+//                ""
+//        ));
+
+        scrapeArticles(new Source(
+                "https://www.reuters.com/business/",
+                "a.story-card",
+                ".paywall-article > p",
+                "article img",
+                "h1",
+                "Reuters",
+                "business",
+                "https://www.reuters.com"
+        ));
+        scrapeArticles(new Source(
+                "https://www.theepochtimes.com/c-arts-culture",
+                ".article_info > .title > a",
+                ".post_content > p",
+                ".featured_img img",
+                ".post_title h1 span",
+                "The Epoch Times",
+                "Arts & Culture",
+                ""
+        ));
     }
 
     private void getTheEpochTimesNews() {
         try {
             Document document = Jsoup.connect("https://www.theepochtimes.com/c-arts-culture").get();
             Elements links = document.select(".article_info > .title > a");
-            for (Element link : links) {
-                Document newsPage = Jsoup.connect(link.attr("href")).get();
+            int numberOfArticles = new Random().nextInt(3);
+            for (int i = 0; i < links.size() && i < numberOfArticles; i++) {
+                Document newsPage = Jsoup.connect(links.get(i).attr("href")).get();
                 Elements textBlocks = newsPage.select(".post_content > p");
                 StringBuilder newsText = new StringBuilder();
                 for (Element textBlock : textBlocks) {
@@ -186,15 +234,42 @@ public class Scrapper {
         }
     }
 
-    private boolean isArticleAlreadyScrapped(String title) {
-        Iterable<News> news = this.newsRepository.findAll();
+    private void scrapeArticles(Source source) {
+        try {
+            Document document = Jsoup.connect(source.getURL()).get();
+            Elements links = document.select(source.getLinksSelector());
+            int numberOfArticles = new Random().nextInt(2);
+            for (int i = 0; i < links.size() && i < numberOfArticles; i++) {
+                Document newsPage = Jsoup.connect(source.getLinkPrefix() + links.get(i).attr("href")).get();
+                Elements textBlocks = newsPage.select(source.getTextBlocksSelector());
+                StringBuilder newsText = new StringBuilder();
+                for (Element textBlock : textBlocks) {
+                    newsText.append(textBlock.text());
+                }
 
-        for(News article : news) {
-            if (article.getTitle().equals(title)) {
-                return true;
+                News news = new News();
+
+                Elements newsImages = newsPage.select(source.getImageSelector());
+                String title = newsPage.select(source.getTitleSelector()).text();
+
+                if (title.length() > 0 && newsImages.size() > 0 && !isArticleAlreadyScrapped(title)) {
+                    news.setImageUrl(newsImages.get(0).attr("src"));
+                    news.setSource(source.getTitle());
+                    news.setTitle(title);
+                    news.setTopic(source.getTopic());
+                    news.setArticleText(newsText.toString());
+                    newsRepository.save(news);
+                } else {
+                    numberOfArticles++;
+                }
             }
+        } catch (IOException | IllegalArgumentException  e) {
+            e.printStackTrace();
+        } catch (DataIntegrityViolationException e) {
+            System.out.println("Duplicate news found");
         }
-
-        return false;
+    }
+    private boolean isArticleAlreadyScrapped(String title) {
+        return this.newsRepository.findByTitle(title) != null;
     }
 }
