@@ -3,9 +3,9 @@ import { HttpClient } from '@angular/common/http';
 export class User {
   id: string = '';
   firstName: string = '';
-  secondName: string = '';
+  lastName: string = '';
   email: string = '';
-  telephone: string = '';
+  phoneNumber: string = '';
   password: string = '';
   role: string = '';
 }

@@ -18,10 +18,10 @@ export class EditProfileComponent implements OnInit {
   matcher = new MyErrorStateMatcher();
   firstName = '';
   firstNameError = false;
-  secondNameError = false;
-  secondName = '';
-  telephone = '';
-  telephoneError = false;
+  lastNameError = false;
+  lastName = '';
+  phoneNumber = '';
+  phoneNumberError = false;
 
   origPass = '';
   origPassError = false;
@@ -44,10 +44,10 @@ export class EditProfileComponent implements OnInit {
     this.matcher = new MyErrorStateMatcher();
     this.firstName = '';
     this.firstNameError = false;
-    this.secondNameError = false;
-    this.secondName = '';
-    this.telephone = '';
-    this.telephoneError = false;
+    this.lastNameError = false;
+    this.lastName = '';
+    this.phoneNumber = '';
+    this.phoneNumberError = false;
 
     this.origPass = '';
     this.origPassError = false;
@@ -62,14 +62,14 @@ export class EditProfileComponent implements OnInit {
   }
 
   hasDigitsSecond(): boolean {
-    let hasDigits = /\d/.test(this.secondName);
-    this.secondNameError = hasDigits;
+    let hasDigits = /\d/.test(this.lastName);
+    this.lastNameError = hasDigits;
     return hasDigits;
   }
 
-  hasLettersTelephone(): boolean {
-    let hasLetters = !/^\d+$/.test(this.telephone);
-    this.telephoneError = hasLetters;
+  hasLettersphoneNumber(): boolean {
+    let hasLetters = !/^\d+$/.test(this.phoneNumber);
+    this.phoneNumberError = hasLetters;
     return hasLetters;
   }
 
@@ -119,7 +119,7 @@ export class EditProfileComponent implements OnInit {
         }
       );
       return;
-    } else if (this.secondName !== '' && this.secondNameError) {
+    } else if (this.lastName !== '' && this.lastNameError) {
       this.snackBar.open(
         'Second name field should contain only letters!',
         'Ok',
@@ -166,8 +166,8 @@ export class EditProfileComponent implements OnInit {
         }
       );
       return;
-    } else if (this.telephone !== '' && this.telephoneError) {
-      this.snackBar.open('Please enter a valid telephone number!', 'Ok', {
+    } else if (this.phoneNumber !== '' && this.phoneNumberError) {
+      this.snackBar.open('Please enter a valid phoneNumber number!', 'Ok', {
         horizontalPosition: 'center',
         verticalPosition: 'top',
         duration: 5000,
@@ -177,9 +177,9 @@ export class EditProfileComponent implements OnInit {
     }
     let user = new User();
     user.firstName = this.firstName;
-    user.secondName = this.secondName;
+    user.lastName = this.lastName;
     user.email = this.emailFormControl.value;
-    user.telephone = this.telephone;
+    user.phoneNumber = this.phoneNumber;
     user.password = this.origPass;
 
     // const userId = localStorage.getItem('userId');
@@ -197,15 +197,15 @@ export class EditProfileComponent implements OnInit {
     if (user.firstName) {
       localStorage.removeItem('firstName');
       localStorage.setItem('firstName', user.firstName);
-    } else if (user.secondName) {
-      localStorage.removeItem('secondName');
-      localStorage.setItem('secondName', user.secondName);
+    } else if (user.lastName) {
+      localStorage.removeItem('lastName');
+      localStorage.setItem('lastName', user.lastName);
     } else if (user.email) {
       localStorage.removeItem('email');
       localStorage.setItem('email', user.email);
-    } else if (user.telephone) {
-      localStorage.removeItem('telephone');
-      localStorage.setItem('telephone', user.telephone);
+    } else if (user.phoneNumber) {
+      localStorage.removeItem('phoneNumber');
+      localStorage.setItem('phoneNumber', user.phoneNumber);
     } else if (user.password) {
       localStorage.removeItem('password');
       localStorage.setItem('password', user.password);

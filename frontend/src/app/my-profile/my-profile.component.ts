@@ -39,15 +39,15 @@ export class MyProfileComponent implements OnInit {
     return localStorage.getItem('firstName');
   }
 
-  getSecondName() {
-    return localStorage.getItem('secondName');
+  getlastName() {
+    return localStorage.getItem('lastName');
   }
 
   getMail() {
     return localStorage.getItem('email');
   }
 
-  getTelephone() {
-    return localStorage.getItem('telephone');
+  getphoneNumber() {
+    return localStorage.getItem('phoneNumber');
   }
 }

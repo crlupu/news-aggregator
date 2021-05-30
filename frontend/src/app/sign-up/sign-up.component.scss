@@ -20,6 +20,15 @@
   font-family: 'SemiBold';
 }
 
+.terms {
+  color: blue;
+  cursor: pointer;
+}
+
+.example-margin {
+  margin: 0 10px;
+}
+
 .menu-item:hover {
   color: rgba(61, 221, 213, 255);
 }

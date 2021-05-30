@@ -10,7 +10,7 @@
 
     <mat-form-field class="example-full-width">
       <mat-label>Second name</mat-label>
-      <input matInput type="text" [(ngModel)]="secondName" [ngModelOptions]="{standalone: true}" required="true">
+      <input matInput type="text" [(ngModel)]="lastName" [ngModelOptions]="{standalone: true}" required="true">
       <mat-hint style="color: red" *ngIf="hasDigitsSecond()">Second name field should contain only letters.</mat-hint>
     </mat-form-field>
 
@@ -27,10 +27,11 @@
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-      <mat-label>Telephone</mat-label>
-      <input type="tel" matInput placeholder="555-555-1234" [(ngModel)]="telephone" required="true">
+      <mat-label>Phone Number</mat-label>
+      <input type="tel" matInput placeholder="555-555-1234" [(ngModel)]="phoneNumber" required="true">
       <mat-icon matSuffix>phone</mat-icon>
-      <mat-hint style="color: red" *ngIf="telephone !== '' && hasLettersTelephone()">Please enter a valid telephone
+      <mat-hint style="color: red" *ngIf="phoneNumber !== '' && hasLettersphoneNumber()">Please enter a valid
+        phone
         number.</mat-hint>
     </mat-form-field>
 
@@ -48,6 +49,12 @@
         match.
       </mat-hint>
     </mat-form-field>
+    <div>
+      <input type="checkbox" [checked]="checked" (change)="checked = !checked" /> I accept all <span class="terms"
+        (click)="openTerms()"><u>terms
+          and
+          conditions</u></span>
+    </div>
   </div>
   <div style="height: 4vw;"></div>
   <div style="text-align: center;">
