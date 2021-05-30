@@ -182,17 +182,27 @@ export class EditProfileComponent implements OnInit {
     user.phoneNumber = this.phoneNumber;
     user.password = this.origPass;
 
-    // const userId = localStorage.getItem('userId');
-    // this.apiService.updateUserRequest(user, userId).subscribe(
-    //   response => {
-    //     console.log('response', response);
-    //     this.dialogRef.close();
-    //     this.snackBar.open('Changed succesfully saved! !', 'Ok', {
-    //       horizontalPosition: 'center',
-    //       verticalPosition: 'top',
-    //       duration: 5000,
-    //       panelClass: ['success-snackbar']
-    //     });
+    const userId = localStorage.getItem('userId') || '';
+    this.apiService.updateUserRequest(user, userId).subscribe(
+      response => {
+        console.log('response', response);
+        this.dialogRef.close();
+        this.snackBar.open('Changed succesfully saved! !', 'Ok', {
+          horizontalPosition: 'center',
+          verticalPosition: 'top',
+          duration: 5000,
+          panelClass: ['success-snackbar']
+        });
+      },
+      error => {
+        this.snackBar.open(error, 'Close', {
+          horizontalPosition: 'center',
+          verticalPosition: 'top',
+          duration: 5000,
+          panelClass: ['error-snackbar']
+        });
+      }
+    );
 
     if (user.firstName) {
       localStorage.removeItem('firstName');
@@ -210,16 +220,6 @@ export class EditProfileComponent implements OnInit {
       localStorage.removeItem('password');
       localStorage.setItem('password', user.password);
     }
-    //   },
-    //   error => {
-    //     this.snackBar.open(error, 'Close', {
-    //       horizontalPosition: 'center',
-    //       verticalPosition: 'top',
-    //       duration: 5000,
-    //       panelClass: ['error-snackbar']
-    //     });
-    //   }
-    // );
   }
 
   cancel() {
