@@ -260,7 +260,7 @@ export class SignUpComponent implements OnInit {
       },
       error => {
         console.log(error);
-        this.signUpSnackBar.open(error, 'Close', {
+        this.signUpSnackBar.open(error.error, 'Close', {
           horizontalPosition: 'center',
           verticalPosition: 'top',
           duration: 5000,
