@@ -1,17 +1,30 @@
 <div class="background-style">
   <app-menu></app-menu>
+  <h1 class="latest-news" style="color: black; margin-top:4vw; font-size:3vw; font-family: Regular;">Latest news</h1>
   <div class="wrapper">
-    <div *ngFor="let item of news" class="item-div" (click)="openItem(item)">
-      <p>{{item}}</p>
-
+    <div *ngFor="let item of news" class="item-div">
+      <p><b>{{item.title}}</b></p>
+      <img [src]="item.imageUrl" width="100%" height="auto">
+      <mat-chip-list style="margin-top: 1vw">
+        Topic: <mat-chip (click)="goToNewsTopic(item.topic.toLowerCase())">#{{item.topic.toLowerCase()}}</mat-chip>
+      </mat-chip-list>
+      <mat-chip-list style="margin-top: 0.5vw">
+        Source: <mat-chip (click)="goToNewsSource(item.source.toLowerCase())">{{item.source}}</mat-chip>
+      </mat-chip-list>
+      <div style="display: flex; margin-top : 1vw">
+        <button mat-raised-button (click)="openItem(item)" style="margin-right : 1vw">
+          Click to read
+        </button>
+        <button mat-raised-button (click)="deleteItem(item)" *ngIf="getRole() === 'admin'">
+          Delete this
+        </button>
+      </div>
     </div>
   </div>
 
-  <div style="text-align: center; margin-top: 70vh">
-    <button mat-raised-button (click)="loadMoreNews()" style="margin-right : 2vw">
-      Load more news...
-    </button>
-  </div>
-
-
+</div>
+<div style="text-align: center; margin-top: 70vh">
+  <button mat-raised-button (click)="loadMoreNews()" style="margin-right : 2vw">
+    Load more news...
+  </button>
 </div>

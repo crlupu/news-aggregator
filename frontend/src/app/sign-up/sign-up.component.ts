@@ -7,7 +7,6 @@ import {
 } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { NewsService } from '../services/news.service';
 import { Router } from '@angular/router';
 import { ConfigureService } from '../configure.service';
 import { User } from '../configure.service';
@@ -51,15 +50,14 @@ export class SignUpComponent implements OnInit {
   matchPassError = false;
   constructor(
     private signUpSnackBar: MatSnackBar,
-    private newsService: NewsService,
     private router: Router,
     private apiService: ConfigureService
   ) {}
 
   ngOnInit(): void {
-    // if (this.newsService.getSignedIn()) {
-    //   this.router.navigate(['/news']);
-    // }
+    if (localStorage.getItem('firstName')) {
+      this.router.navigate(['']);
+    }
     this.initializeAll();
   }
 

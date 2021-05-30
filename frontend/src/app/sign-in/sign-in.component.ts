@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { MyErrorStateMatcher } from '../sign-up/sign-up.component';
 import { FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { NewsService } from '../services/news.service';
 import { Router } from '@angular/router';
 import { User, ConfigureService } from '../configure.service';
 
@@ -20,15 +19,14 @@ export class SignInComponent implements OnInit {
   origPass = '';
   constructor(
     private signUpSnackBar: MatSnackBar,
-    private newsService: NewsService,
     public router: Router,
     private apiService: ConfigureService
   ) {}
 
   ngOnInit() {
-    // if (this.newsService.getSignedIn()) {
-    //   this.router.navigate(['/news']);
-    // }
+    if (localStorage.getItem('firstName')) {
+      this.router.navigate(['']);
+    }
     this.origPass = '';
     this.emailFormControl = new FormControl('', [
       Validators.required,
@@ -71,8 +69,17 @@ export class SignInComponent implements OnInit {
             panelClass: ['success-snackbar']
           });
           // change this to save in localstorage
-          this.newsService.setSignedIn(true);
-          //redirect to home page
+          if (response) {
+            localStorage.setItem('firstName', response.firstName);
+            localStorage.setItem('secondName', response.secondName);
+            localStorage.setItem('email', response.email);
+            localStorage.setItem('password', response.password);
+            localStorage.setItem('telephone', response.telephone);
+            localStorage.setItem('id', response.id);
+            localStorage.setItem('role', response.role);
+            //redirect to home page
+            this.router.navigate(['']);
+          }
         },
         error => {
           this.signUpSnackBar.open(error, 'Close', {

@@ -193,6 +193,23 @@ export class EditProfileComponent implements OnInit {
     //       duration: 5000,
     //       panelClass: ['success-snackbar']
     //     });
+
+    if (user.firstName) {
+      localStorage.removeItem('firstName');
+      localStorage.setItem('firstName', user.firstName);
+    } else if (user.secondName) {
+      localStorage.removeItem('secondName');
+      localStorage.setItem('secondName', user.secondName);
+    } else if (user.email) {
+      localStorage.removeItem('email');
+      localStorage.setItem('email', user.email);
+    } else if (user.telephone) {
+      localStorage.removeItem('telephone');
+      localStorage.setItem('telephone', user.telephone);
+    } else if (user.password) {
+      localStorage.removeItem('password');
+      localStorage.setItem('password', user.password);
+    }
     //   },
     //   error => {
     //     this.snackBar.open(error, 'Close', {

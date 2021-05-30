@@ -4,14 +4,13 @@ import { ConfigureService, News } from '../configure.service';
 import { MatDialog } from '@angular/material/dialog';
 import { NewsItemComponent } from '../news-item/news-item.component';
 import { DeleteNewsComponent } from '../delete-news/delete-news.component';
-import { RepositionScrollStrategy } from '@angular/cdk/overlay';
 
 @Component({
-  selector: 'app-news',
-  templateUrl: './news.component.html',
-  styleUrls: ['./news.component.scss']
+  selector: 'app-news-by-topic',
+  templateUrl: '../news/news.component.html',
+  styleUrls: ['../news/news.component.scss']
 })
-export class NewsComponent implements OnInit {
+export class NewsByTopicComponent implements OnInit {
   constructor(
     private apiService: ConfigureService,
     public router: Router,
@@ -20,9 +19,9 @@ export class NewsComponent implements OnInit {
   news: any = [];
   page = 0;
   ngOnInit(): void {
-    // if (!localStorage.getItem('firstName')) {
-    //   this.router.navigate(['/sign-in']);
-    // }
+    if (!localStorage.getItem('firstName')) {
+      this.router.navigate(['/sign-in']);
+    }
     this.apiService.getNewsRequest(this.page).subscribe(response => {
       this.news = response;
       console.log(this.news);
@@ -56,24 +55,19 @@ export class NewsComponent implements OnInit {
     this.router.navigate([url]);
   }
 
-  getRole() {
-    return localStorage.getItem('role');
-  }
-
   deleteItem(item: News) {
     const dialogRef = this.dialog.open(DeleteNewsComponent, {
-      width: '20vw',
-      height: '17vh',
+      width: '10vw',
+      height: '10vh',
       data: {
         item: item
       }
     });
 
-    dialogRef.afterClosed().subscribe(response => {
-      if (response) {
-        const index = this.news.indexOf(item);
-        this.news.splice(index, 1);
-      }
-    });
+    dialogRef.afterClosed().subscribe();
+  }
+
+  getRole() {
+    return localStorage.getItem('role');
   }
 }

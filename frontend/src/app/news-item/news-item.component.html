@@ -1,0 +1,20 @@
+<button mat-button class="close-icon" [mat-dialog-close]="true" style="float:right">
+  <mat-icon>close</mat-icon>
+</button>
+<div class="news-main">
+  <h1 style="text-align: center;">
+    {{item.title}}
+  </h1>
+  <img [src]="item.imageUrl" width="100%" height="auto">
+  <p class="article-text">
+    {{item.articleText}}
+  </p>
+  <div style="text-align: center; font-size: 1vw">
+    <mat-chip-list style="margin-top: 1vw; ">
+      Topic: <mat-chip (click)="goToNewsTopic(item.topic.toLowerCase())">#{{item.topic.toLowerCase()}}</mat-chip>
+    </mat-chip-list>
+    <mat-chip-list style="margin-top: 0.5vw">
+      Source: <mat-chip (click)="goToNewsSource(item.source.toLowerCase())">{{item.source}}</mat-chip>
+    </mat-chip-list>
+  </div>
+</div>

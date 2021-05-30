@@ -5,6 +5,7 @@
   background-size: 100vw 100vh;
   color: white;
   font-family: 'Regular';
+  text-align: center;
 }
 
 .wrapper {
@@ -13,17 +14,27 @@
   flex-wrap: wrap;
   max-width: 90%;
   max-height: 90%;
-  margin: 7%
+  margin: 7%;
+  margin-top: 2%;
+  font-family: 'Regular';
+}
+
+mat-chip {
+  background-color: rgb(224, 219, 219) !important;
+  font-family: 'Regular';
 }
 
 .item-div {
   display: flex;
   flex-direction: column;
-  width: 180px;
-  height: 300px;
+  width: 18vw;
+  height: 26vw;
   background-color: #f7f7f7;
   margin: 1%;
-  padding: 4%;
+  padding: 1%;
+  font-family: 'Regular';
+  text-align: center;
+  align-items: center;
   cursor: pointer;
   color: black;
   border-radius: 10px;

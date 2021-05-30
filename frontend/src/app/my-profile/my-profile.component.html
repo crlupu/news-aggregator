@@ -1,10 +1,10 @@
 <div class="background-style">
   <app-menu></app-menu>
   <h1 class="info-profile-main">My Profile</h1>
-  <h2 class="info-profile">Name : </h2>
-  <h2 class="info-profile">Second name : </h2>
-  <h2 class="info-profile">Telephone number : </h2>
-  <h2 class="info-profile">Email : </h2>
+  <h2 class="info-profile">Name : {{getFirstName()}}</h2>
+  <h2 class="info-profile">Second name : {{getSecondName()}}</h2>
+  <h2 class="info-profile">Telephone number : {{getMail()}}</h2>
+  <h2 class="info-profile">Email : {{getTelephone()}}</h2>
   <div style="height: 4vw;"></div>
   <a class="button-get-started" (click)="editProfile()">Edit my profile</a>
   <a class="button-get-started" (click)="logout()">Logout</a>

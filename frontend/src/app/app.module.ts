@@ -11,7 +11,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { SignInComponent } from './sign-in/sign-in.component';
-import { ContactComponent } from './contact/contact.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
@@ -23,6 +22,11 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { MatChipsModule } from '@angular/material/chips';
+import { NewsItemComponent } from './news-item/news-item.component';
+import { NewsByTopicComponent } from './news-by-topic/news-by-topic.component';
+import { NewsBySourceComponent } from './news-by-source/news-by-source.component';
+import { DeleteNewsComponent } from './delete-news/delete-news.component';
 
 @NgModule({
   declarations: [
@@ -30,11 +34,14 @@ import { NgxPaginationModule } from 'ngx-pagination';
     LandingPageComponent,
     SignUpComponent,
     SignInComponent,
-    ContactComponent,
     MenuComponent,
     NewsComponent,
     MyProfileComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    NewsItemComponent,
+    NewsByTopicComponent,
+    NewsBySourceComponent,
+    DeleteNewsComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +57,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     MatDialogModule,
     HttpClientModule,
     MatPaginatorModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MatChipsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NewsService } from '../services/news.service';
 
 @Component({
   selector: 'app-menu',
@@ -7,11 +6,15 @@ import { NewsService } from '../services/news.service';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
-  constructor(private newsService: NewsService) {}
+  constructor() {}
 
   ngOnInit(): void {}
 
-  getIsSignedIn(): boolean {
-    return this.newsService.getSignedIn();
+  getIsSignedIn() {
+    return localStorage.getItem('firstName');
+  }
+
+  getRole() {
+    return localStorage.getItem('role');
   }
 }
