@@ -1,14 +1,9 @@
 FROM node:14.1-alpine AS builder
-
-WORKDIR /opt/web
+WORKDIR /usr/src/app
 COPY package.json package-lock.json ./
 RUN npm install
+COPY . .
+RUN npm run build --prod
+FROM nginx:1.15.8-alpine
+COPY --from=builder /usr/src/app/dist/SampleApp/ /usr/share/nginx/html
 
-ENV PATH="./node_modules/.bin:$PATH"
-
-COPY . ./
-RUN ng build --prod
-
-FROM nginx:1.17-alpine
-COPY nginx.config /etc/nginx/conf.d/default.conf
-COPY --from=builder /opt/web/dist/notes /usr/share/nginx/html
