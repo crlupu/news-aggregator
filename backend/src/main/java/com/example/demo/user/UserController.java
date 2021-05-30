@@ -1,58 +1,61 @@
 package com.example.demo.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
 
+@CrossOrigin
 @RestController
 public class UserController {
     @Autowired
     UserRepository userRepository;
 
     @PostMapping("/users/register")
-    public Status registerUser(@Valid @RequestBody User newUser) {
+    public ResponseEntity<String> registerUser(@Valid @RequestBody User newUser) {
         List<User> users = userRepository.findAll();
 
         for (User user : users) {
             if (user.equals(newUser)) {
-                return Status.USER_ALREADY_EXISTS;
+                return new ResponseEntity<>("User already registered", HttpStatus.BAD_REQUEST);
             }
         }
 
         userRepository.save(newUser);
-        return Status.SUCCESS;
+        return new ResponseEntity<>("User successfully added", HttpStatus.OK);
     }
 
     @PostMapping("/users/login")
-    public Status loginUser(@Valid @RequestBody User user) {
+    public ResponseEntity<String> loginUser(@Valid @RequestBody User user) {
         List<User> users = userRepository.findAll();
         for (User other : users) {
             if (other.equals(user)) {
                 other.setLoggedIn(true);
                 userRepository.save(other);
-                return Status.SUCCESS;
+                return new ResponseEntity<>("User successfully logged in", HttpStatus.OK);
             }
         }
-        return Status.FAILURE;
+        return new ResponseEntity<>("Log in failed", HttpStatus.BAD_REQUEST);
     }
 
     @PostMapping("/users/logout")
-    public Status logUserOut(@Valid @RequestBody User user) {
+    public ResponseEntity<String> logUserOut(@Valid @RequestBody User user) {
         List<User> users = userRepository.findAll();
         for (User other : users) {
             if (other.equals(user)) {
                 user.setLoggedIn(false);
                 userRepository.save(user);
-                return Status.SUCCESS;
+                return new ResponseEntity<>("User successfully logged out", HttpStatus.OK);
             }
         }
-        return Status.FAILURE;
+        return new ResponseEntity<>("Could not log out user", HttpStatus.BAD_REQUEST);
     }
 
     @PatchMapping("/users/{id}")
-    public void updateUser(@PathVariable Long id,
+    public ResponseEntity<String> updateUser(@PathVariable Long id,
                            @Valid @RequestBody User newUser) {
         userRepository.findById(id)
                 .map(user -> {
@@ -61,11 +64,14 @@ public class UserController {
                     user.setEmail(newUser.getEmail().equals("") ? "" : newUser.getEmail());
                     user.setPassword(newUser.getPassword().equals("") ? "" : newUser.getPassword());
                     user.setPhoneNumber(newUser.getPhoneNumber().equals("") ? "" : newUser.getPhoneNumber());
-                    return userRepository.save(user);
+                    userRepository.save(user);
+                    return new ResponseEntity<>("User successfully updated", HttpStatus.OK);
                 })
                 .orElseGet(() -> {
                     newUser.setId(id);
-                    return userRepository.save(newUser);
+                    userRepository.save(newUser);
+                    return new ResponseEntity<>("User successfully updated", HttpStatus.OK);
                 });
+        return new ResponseEntity<>("Could not update user", HttpStatus.BAD_REQUEST);
     }
 }
