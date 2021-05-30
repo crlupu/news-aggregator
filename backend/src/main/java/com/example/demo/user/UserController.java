@@ -19,15 +19,14 @@ public class UserController {
     @PostMapping("/users/register")
     public ResponseEntity<String> registerUser(@Valid @RequestBody User newUser) {
         List<User> users = userRepository.findAll();
-        System.out.println("Registering user...");
         for (User user : users) {
             if (user.equals(newUser)) {
-                return new ResponseEntity<>("User already registered", HttpStatus.BAD_REQUEST);
+                return new ResponseEntity<>("{\"response\":\"User already registered\"}", HttpStatus.BAD_REQUEST);
             }
         }
 
         userRepository.save(newUser);
-        return new ResponseEntity<>("User successfully added", HttpStatus.OK);
+        return new ResponseEntity<>("{\"response\":\"User successfully added\"}", HttpStatus.OK);
     }
 
     @PostMapping("/users/login")
@@ -37,10 +36,10 @@ public class UserController {
             if (other.equals(user)) {
                 other.setLoggedIn(true);
                 userRepository.save(other);
-                return new ResponseEntity<>("User successfully logged in", HttpStatus.OK);
+                return new ResponseEntity<>("{\"response\":\"User successfully logged in\"}", HttpStatus.OK);
             }
         }
-        return new ResponseEntity<>("Log in failed", HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>("{\"response\":\"Log in failed\"}", HttpStatus.BAD_REQUEST);
     }
 
     @PostMapping("/users/logout")
@@ -50,10 +49,10 @@ public class UserController {
             if (other.equals(user)) {
                 user.setLoggedIn(false);
                 userRepository.save(user);
-                return new ResponseEntity<>("User successfully logged out", HttpStatus.OK);
+                return new ResponseEntity<>("{\"response\":\"User successfully logged out\"}", HttpStatus.OK);
             }
         }
-        return new ResponseEntity<>("Could not log out user", HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>("{\"response\":\"Could not log out user\"}", HttpStatus.BAD_REQUEST);
     }
 
     @PatchMapping("/users/{id}")
@@ -65,12 +64,12 @@ public class UserController {
             user.setPassword(newUser.getPassword().equals("") ? "" : newUser.getPassword());
             user.setPhoneNumber(newUser.getPhoneNumber().equals("") ? "" : newUser.getPhoneNumber());
             userRepository.save(user);
-            return new ResponseEntity<>("User successfully updated", HttpStatus.OK);
+            return new ResponseEntity<>("{\"response\":\"User successfully updated\"}", HttpStatus.OK);
         }).orElseGet(() -> {
             newUser.setId(id);
             userRepository.save(newUser);
-            return new ResponseEntity<>("User successfully updated", HttpStatus.OK);
+            return new ResponseEntity<>("{\"response\":\"User successfully updated\"}", HttpStatus.OK);
         });
-        return new ResponseEntity<>("Could not update user", HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>("{\"response\":\"Could not update user\"}", HttpStatus.BAD_REQUEST);
     }
 }
