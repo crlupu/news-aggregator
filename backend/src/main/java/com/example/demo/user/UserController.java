@@ -56,19 +56,19 @@ public class UserController {
 
     @PatchMapping("/users/{id}")
     public ResponseEntity<String> updateUser(@PathVariable Long id, @Valid @RequestBody User newUser) {
-        userRepository.findById(id).map(user -> {
+        User user = userRepository.findById(id).orElseGet(null);
+        if (user != null){
             user.setFirstName(newUser.getFirstName().equals("") ? "" : newUser.getFirstName());
             user.setLastName(newUser.getLastName().equals("") ? "" : newUser.getLastName());
             user.setEmail(newUser.getEmail().equals("") ? "" : newUser.getEmail());
             user.setPassword(newUser.getPassword().equals("") ? "" : newUser.getPassword());
             user.setPhoneNumber(newUser.getPhoneNumber().equals("") ? "" : newUser.getPhoneNumber());
             userRepository.save(user);
-            return new ResponseEntity<>("{\"response\":\"User successfully updated\"}", HttpStatus.OK);
-        }).orElseGet(() -> {
+        }
+        else {
             newUser.setId(id);
             userRepository.save(newUser);
-            return new ResponseEntity<>("{\"response\":\"User successfully updated\"}", HttpStatus.OK);
-        });
-        return new ResponseEntity<>("{\"response\":\"Could not update user\"}", HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>("{\"response\":\"User successfully updated\"}", HttpStatus.OK);
     }
 }
